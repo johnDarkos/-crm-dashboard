@@ -1,0 +1,254 @@
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+    padding: 80px 40px 60px;
+    background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+    color: white;
+    margin-bottom: 60px;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Content Section */
+.content-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+}
+
+.mission-card {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #7209b7 0%, #560bad 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 60px;
+    box-shadow: 0 10px 30px rgba(114, 9, 183, 0.2);
+}
+
+.mission-card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.mission-card h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.mission-card p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #4361ee;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #4361ee;
+}
+
+.feature-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Team Section */
+.team-preview {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-preview h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.team-preview p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.member-avatar {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.member-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.member-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+    color: white;
+    border-radius: 20px;
+    margin: 0 40px 60px;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    padding: 15px 40px;
+    background: white;
+    color: #4361ee;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px;
+    background: #f8f9fa;
+    color: #666;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero-section {
+        padding: 60px 20px 40px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .content-section {
+        padding: 0 20px 40px;
+    }
+    
+    .mission-card {
+        padding: 30px 20px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .team-members {
+        gap: 20px;
+    }
+    
+    .cta-section {
+        padding: 40px 20px;
+        margin: 0 20px 40px;
+    }
+    
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+}
