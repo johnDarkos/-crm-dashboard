@@ -1,9 +1,17 @@
-
 export const authButtons = () => {
-    return `
-        <div class="auth-buttons">
-            <button class="login_in_btn" data-route="login">Log in</button>
-            <button class="signup_btn" data-route="register">Sign up</button>
-        </div>
-    `;
+    const container = document.createElement('div');
+    container.classList.add('auth-buttons');
+
+    const loginBtn = document.createElement('button');
+    loginBtn.classList.add('login_in_btn');
+    loginBtn.dataset.route = 'login';
+    loginBtn.textContent = 'Log in';
+
+    const signupBtn = document.createElement('button');
+    signupBtn.classList.add('signup_btn');
+    signupBtn.dataset.route = 'register';
+    signupBtn.textContent = 'Sign up';
+
+    container.append(loginBtn, signupBtn);
+    return container;
 };

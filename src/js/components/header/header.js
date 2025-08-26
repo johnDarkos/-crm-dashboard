@@ -2,16 +2,20 @@ import { navigation } from '../top-navigation/top-navigation.js';
 import './header.css';
 
 const listItem = ['home', 'about', 'docs'].map(item => {
-    return `<li class="nav-item" data-route="${item}">${item}</li>`;
+    const li = document.createElement('li');
+    li.classList.add('nav-item');
+    li.dataset.route = item;
+    li.textContent = item;
+    return li;
 });
 
 // Только создаем и возвращаем HTML-строку
 export const header = () => {
     const headerElement = document.createElement('header');
     headerElement.className = 'header';
-    headerElement.innerHTML = navigation(...listItem);
-
-    return headerElement.outerHTML;
+    const nav = navigation(...listItem);
+    headerElement.append(nav);
+    return headerElement;
 };
 
 // Инициализация header с обработчиками (вызывается 1 раз)
@@ -22,13 +26,7 @@ export const initHeader = () => {
         return;
     }
 
-
-
-    const headerHTML = header();
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = headerHTML;
-
-    const headerElement = tempDiv.firstElementChild;
+    const headerElement = header();
     
     const ul = headerElement.querySelector('.nav-list');
     const auth = headerElement.querySelector('.auth-buttons');

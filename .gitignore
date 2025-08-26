@@ -1,0 +1,25 @@
+# Зависимости
+node_modules/
+
+# IDE и ОС
+.DS_Store
+.idea/
+.vscode/
+
+# Логи и временные файлы
+*.log
+*.tmp
+
+# Параметры среды
+.env
+.env.local
+
+# Автогенерируемые файлы
+dist/
+.parcel-cache/
+
+# Локальные файлы
+*.local
+
+# README файлы
+README*.md

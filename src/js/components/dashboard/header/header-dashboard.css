@@ -1,0 +1,118 @@
+/* Main Content */
+.dashboard-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/* Header */
+.dasboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dasboard-header-left h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.dasboard-header-left p {
+    color: #64748b;
+    margin-top: 5px;
+}
+
+.dasboard-header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.search-box input {
+    padding: 8px 12px 8px 35px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    width: 200px;
+    background: white;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.1);
+}
+
+.notifications,
+.user-menu {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.notifications:hover,
+.user-menu:hover {
+    background: #e2e8f0;
+}
+
+/* User menu dropdown */
+.user__menu {
+    position: relative;
+}
+
+.user__menu_trigger {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.user__menu_trigger:hover {
+    background: #e2e8f0;
+}
+
+.user__menu__wrapper {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.user__menu_item {
+    padding: 8px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.user__menu_item:hover {
+    background: #f1f5f9;
+}

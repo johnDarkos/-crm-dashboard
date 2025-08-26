@@ -2,87 +2,113 @@ import aboutCss from './about.css';
 
 
 export const aboutPage = () => {
-    return `
-        <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О нас - CRM Система</title>
-    <link rel="stylesheet" href="about.css">
-</head>
-<body>
-    <div class="container">
-        <main class="main-content">
-            <div class="hero-section">
-                <h1 class="main-title">О нашей CRM системе</h1>
-                <p class="subtitle">Революционный подход к управлению взаимоотношениями с клиентами</p>
-            </div>
+    const container = document.createElement('div');
+    container.classList.add('container');
 
-            <div class="content-section">
-                <div class="mission-card">
-                    <div class="icon">🎯</div>
-                    <h2>Наша миссия</h2>
-                    <p>Сделать управление клиентскими отношениями простым, эффективным и интуитивно понятным для бизнеса любого масштаба.</p>
-                </div>
+    const main = document.createElement('main');
+    main.classList.add('main-content');
 
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🚀</div>
-                        <h3>Инновации</h3>
-                        <p>Современные технологии и передовые практики в области CRM</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>Безопасность</h3>
-                        <p>Максимальная защита ваших данных и конфиденциальной информации</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔄</div>
-                        <h3>Автоматизация</h3>
-                        <p>Автоматизируйте рутинные процессы и сосредоточьтесь на развитии бизнеса</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📈</div>
-                        <h3>Аналитика</h3>
-                        <p>Глубокая аналитика для принятия обоснованных бизнес-решений</p>
-                    </div>
-                </div>
+    const hero = document.createElement('div');
+    hero.classList.add('hero-section');
+    const h1 = document.createElement('h1');
+    h1.classList.add('main-title');
+    h1.textContent = 'О нашей CRM системе';
+    const subtitle = document.createElement('p');
+    subtitle.classList.add('subtitle');
+    subtitle.textContent = 'Революционный подход к управлению взаимоотношениями с клиентами';
+    hero.append(h1, subtitle);
 
-                <div class="team-preview">
-                    <h2>Наша команда</h2>
-                    <p>Профессионалы с многолетним опытом в разработке CRM решений, маркетинге и управлении проектами.</p>
-                    <div class="team-members">
-                        <div class="team-member">
-                            <div class="member-avatar">👨‍💼</div>
-                            <div class="member-info">
-                                <h4>Александр Герасимов</h4>
-                                <p>CEO & Основатель</p>
-                            </div>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-avatar">👩‍💻</div>
-                            <div class="member-info">
-                                <h4>Диана Герасимова</h4>
-                                <p>Технический директор</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    const content = document.createElement('div');
+    content.classList.add('content-section');
 
-            <div class="cta-section">
-                <h2>Готовы начать?</h2>
-                <p>Присоединяйтесь к тысячам компаний, которые уже используют нашу CRM систему</p>
-                <button class="cta-button">Попробовать бесплатно</button>
-            </div>
-        </main>
+    const mission = document.createElement('div');
+    mission.classList.add('mission-card');
+    const icon = document.createElement('div');
+    icon.classList.add('icon');
+    icon.textContent = '🎯';
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Наша миссия';
+    const p = document.createElement('p');
+    p.textContent = 'Сделать управление клиентскими отношениями простым, эффективным и интуитивно понятным для бизнеса любого масштаба.';
+    mission.append(icon, h2, p);
 
-        <footer class="footer">
-            <p>&copy; 2024 CRM Система. Все права защищены.</p>
-        </footer>
-    </div>
-</body>
-</html>
-    `
+    const grid = document.createElement('div');
+    grid.classList.add('features-grid');
+    const features = [
+        { emoji: '🚀', title: 'Инновации', text: 'Современные технологии и передовые практики в области CRM' },
+        { emoji: '🔒', title: 'Безопасность', text: 'Максимальная защита ваших данных и конфиденциальной информации' },
+        { emoji: '🔄', title: 'Автоматизация', text: 'Автоматизируйте рутинные процессы и сосредоточьтесь на развитии бизнеса' },
+        { emoji: '📈', title: 'Аналитика', text: 'Глубокая аналитика для принятия обоснованных бизнес-решений' },
+    ];
+    const gridFrag = document.createDocumentFragment();
+    features.forEach(({ emoji, title, text }) => {
+        const card = document.createElement('div');
+        card.classList.add('feature-card');
+        const ic = document.createElement('div');
+        ic.classList.add('feature-icon');
+        ic.textContent = emoji;
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+        const tp = document.createElement('p');
+        tp.textContent = text;
+        card.append(ic, h3, tp);
+        gridFrag.append(card);
+    });
+    grid.append(gridFrag);
+
+    const team = document.createElement('div');
+    team.classList.add('team-preview');
+    const th = document.createElement('h2');
+    th.textContent = 'Наша команда';
+    const tp2 = document.createElement('p');
+    tp2.textContent = 'Профессионалы с многолетним опытом в разработке CRM решений, маркетинге и управлении проектами.';
+    const members = document.createElement('div');
+    members.classList.add('team-members');
+
+    const memberData = [
+        { avatar: '👨‍💼', name: 'Александр Герасимов', role: 'CEO & Основатель' },
+        { avatar: '👩‍💻', name: 'Диана Герасимова', role: 'Технический директор' },
+    ];
+    const memFrag = document.createDocumentFragment();
+    memberData.forEach(({ avatar, name, role }) => {
+        const m = document.createElement('div');
+        m.classList.add('team-member');
+        const a = document.createElement('div');
+        a.classList.add('member-avatar');
+        a.textContent = avatar;
+        const info = document.createElement('div');
+        info.classList.add('member-info');
+        const h4 = document.createElement('h4');
+        h4.textContent = name;
+        const rp = document.createElement('p');
+        rp.textContent = role;
+        info.append(h4, rp);
+        m.append(a, info);
+        memFrag.append(m);
+    });
+    members.append(memFrag);
+    team.append(th, tp2, members);
+
+    content.append(mission, grid, team);
+
+    const cta = document.createElement('div');
+    cta.classList.add('cta-section');
+    const ctaH2 = document.createElement('h2');
+    ctaH2.textContent = 'Готовы начать?';
+    const ctaP = document.createElement('p');
+    ctaP.textContent = 'Присоединяйтесь к тысячам компаний, которые уже используют нашу CRM систему';
+    const ctaBtn = document.createElement('button');
+    ctaBtn.classList.add('cta-button');
+    ctaBtn.textContent = 'Попробовать бесплатно';
+    cta.append(ctaH2, ctaP, ctaBtn);
+
+    const footer = document.createElement('footer');
+    footer.classList.add('footer');
+    const fp = document.createElement('p');
+    fp.innerHTML = '&copy; 2024 CRM Система. Все права защищены.';
+    footer.append(fp);
+
+    main.append(hero, content, cta);
+    container.append(main, footer);
+    return container;
 }
