@@ -6,6 +6,7 @@ export const appState = {
         id: null,
         name: '',
         email: '',
+        password: '',
         role: '',
         avatar: '',
         lastLogin: null,
@@ -103,6 +104,7 @@ export const actions = {
             id: null,
             name: '',
             email: '',
+            password: '',
             role: '',
             avatar: '',
             lastLogin: null,
@@ -238,4 +240,34 @@ function saveState() {
 
 // Инициализация при старте
 initState();
+
+// Экспорт stateApp с методами для доступа к состоянию
+export const stateApp = {
+    getUser() {
+        return appState.user;
+    },
+    
+    getAuth() {
+        return appState.auth;
+    },
+    
+    getDashboard() {
+        return appState.dashboard;
+    },
+    
+    getClients() {
+        return appState.clients;
+    },
+    
+    getSettings() {
+        return appState.settings;
+    },
+    
+    getUI() {
+        return appState.ui;
+    },
+    
+    // Делегируем действия
+    ...actions
+};
 

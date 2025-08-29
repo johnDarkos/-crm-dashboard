@@ -1,8 +1,9 @@
 import { clearSession } from "../../../../services/localStorage/authService";
-import { actions as stateActions } from "../../../../storage/stateApp.js";
+import { dashboardContentManager } from "../../../../router/pages/userpage/userPageTemplate.js";
+import { profile } from "../../../../router/pages/profile/profile.js";
 
 export const createUserMenu = (items) => {
-    const { clearUser } = stateActions;
+
     const menuContainer = document.createElement('div');
     menuContainer.classList.add('user__menu');
 
@@ -20,11 +21,19 @@ export const createUserMenu = (items) => {
 
     // Карта действий по ключу
     const actions = {
-        профиль: () => console.log('Открыть профиль'),
+        профиль: () => {
+            // Если мы в дашборде, показываем профиль внутри него
+            if (dashboardContentManager.mainContent) {
+                const profileContent = profile();
+                dashboardContentManager.setContent(profileContent, 'profile');
+            } else {
+                // Иначе переходим на страницу профиля
+                window.location.hash = '#/profile';
+            }
+        },
         настройки: () => console.log('Открыть настройки'),
         выход: () => {
             clearSession();
-            clearUser();
             window.location.hash = '#/home';
         }
     };

@@ -6,6 +6,7 @@ export class User {
         id = null,
         name = '',
         email = '',
+        password = '',
         role = '',
         avatar = '',
         lastLogin = null,
@@ -14,6 +15,7 @@ export class User {
         this.id = id ?? generateTimeBasedUserId();
         this.name = name;
         this.email = email;
+        this.password = password; // Хэш пароля
         this.role = role;
         this.avatar = avatar;
         this.lastLogin = lastLogin ? new Date(lastLogin) : null;
@@ -63,6 +65,7 @@ export class User {
             id: this.id,
             name: this.name,
             email: this.email,
+            password: this.password,
             role: this.role,
             avatar: this.avatar,
             lastLogin: this.lastLogin ? this.lastLogin.toISOString() : null,

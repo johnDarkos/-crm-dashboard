@@ -1,6 +1,8 @@
 import './header-dashboard.css';
 import { createUserMenu } from './userMenu/userMenu';
-import { appState } from '../../../storage/stateApp';
+import { appState } from '../../../storage/stateApp.js';
+
+const { user } = appState;
 
 export const dashboardHeader = () => {
     const header = document.createElement('header');
@@ -9,7 +11,7 @@ export const dashboardHeader = () => {
     const left = document.createElement('div');
     left.classList.add('dasboard-header-left');
     const welcome = document.createElement('p');
-    welcome.textContent = `Добро пожаловать, ${appState.user?.name || 'Пользователь'}!`;
+    welcome.textContent = `Добро пожаловать, ${user?.name || 'Пользователь'}!`;
     left.append(welcome);
 
     const right = document.createElement('div');
