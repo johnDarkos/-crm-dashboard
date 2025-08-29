@@ -2,9 +2,12 @@ import { homePage } from "./pages/home/homepage.js"
 import { aboutPage } from "./pages/about/about.js"
 import { signup } from "./pages/auth/signUp/signup.js"
 import { signin } from "./pages/auth/signIn/signin.js"
+import { profile } from "./pages/profile/profile.js"
 import { userPage } from "./pages/userpage/userPage.js"
+import { terms } from "./pages/terms/terms.js"
 import { initHeader } from "../components/header/header.js"
 import { isAuthenticated } from "../services/localStorage/authService.js"
+import { dashboardContentManager } from "./pages/userpage/userPageTemplate.js"
 
 const router = {
     home: () => homePage(),
@@ -16,8 +19,10 @@ const router = {
         }
     },
     userPage: () => userPage(),
+    profile: () => profile(),
     register: () => signup(),
     login: () => signin(),
+    terms: () => terms(),
     404: () => {
         return {
             html: `<h1 style="color: red; text-align: center; margin-top: 100px">PAGE NOT FOUND!</h1>`,
@@ -43,6 +48,14 @@ const handlechangeRoute = (path) => {
     window.location.hash = '#/login';
     return router['login']();
   }
+
+  // Если мы в дашборде и переходим на профиль, показываем его внутри дашборда
+  if (path === 'profile' && dashboardContentManager.getCurrentView() === 'dashboard') {
+    const profileContent = profile();
+    dashboardContentManager.setContent(profileContent, 'profile');
+    return null; // Не возвращаем новый роут, так как контент уже обновлен
+  }
+
   return router[path] ? router[path]() : router['404']();
 };
 
