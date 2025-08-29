@@ -1,24 +1,54 @@
 import { createSignInView } from './signInTemplate.js';
 import { initSignIn } from './initSignForm.js';
-import { getLocalStorage } from '../../../../services/localStorage/localStorageApi.js';
-import { isAuthenticated, clearSession, setSession} from '../../../../services/localStorage/authService.js';
+import { setSession } from '../../../../services/localStorage/authService.js';
+import { hashPassword } from "../../../../utils/hashPassword.js";
 
 const onSubmit = (e) => {
     e.preventDefault();
 
-    const { email } = getLocalStorage();
 
-    console.log(email)
-    
-   if(email !== e.target.email.value) {
-        alert('Неверный логин или пароль');
-        window.location.hash = '#/login';
-        return;
+    try {
+        const data = localStorage.getItem('crmAppState');
+
+        if (!data) {
+            alert('Пользователь не найден. Пожалуйста, зарегистрируйтесь.');
+            window.location.hash = '#/register';
+            return;
+        }
+
+        const parsedData = JSON.parse(data);
+        const { user } = parsedData;
+
+        if (!user || !user.email) {
+            alert('Пользователь не найден. Пожалуйста, зарегистрируйтесь.');
+            window.location.hash = '#/register';
+            return;
+        }
+
+        const inputEmail = e.target.email.value;
+        const inputPassword = e.target.password.value;
+
+        // Проверяем email и пароль
+        if (user.email !== inputEmail) {
+            alert('Неверный email или пароль');
+            return;
+        }
+
+        const hashedInputPassword = hashPassword(inputPassword);
+        if (user.password !== hashedInputPassword) {
+            alert('Неверный email или пароль');
+            return;
+        }
+
+        // Успешная авторизация
+        e.target.reset();
+        setSession({ email: inputEmail });
+        window.location.hash = '#/userPage';
+
+    } catch (error) {
+        console.error('Ошибка при авторизации:', error);
+        alert('Произошла ошибка при авторизации. Попробуйте еще раз.');
     }
-
-    e.target.reset();
-    setSession({email: e.target.email.value})
-    window.location.hash = '#/userPage';
 }
 
 export const signin = () => {
